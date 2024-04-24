@@ -1,53 +1,52 @@
-#include
-#include
+#include <iostream>
+#include <string>
 #include <stdlib.h>
 using namespace std;
 
 //set classes
 class gun{
-public:
-int damage;
-int mag;
-int ammo_cons; //ammo consumption
+    public:
+    int damage;
+    int mag;
+    int ammo_cons; //ammo consumption
 };
 class zombie{
-public:
-int damage;
-int hp;
+    public:
+    int damage;
+    int hp;
 };
 
 int main(){
-//set variables
-string player_name;
-int player_hp;
-int player_curr_hp;
-//constructing objects
-gun pistol;
-pistol.damage=10;
-pistol.mag=15;
-pistol.ammo_cons=1;
+    //set variables
+    string player_name;
+    int player_hp;
+    int player_curr_hp;
+    //constructing objects
+    gun pistol;
+    pistol.damage=10;
+    pistol.mag=15;
+    pistol.ammo_cons=1;
 
-gun shotgun;
-shotgun.damage=30;
-shotgun.mag=6;
-shotgun.ammo_cons=3;
-//Tottal Damage damage x ammo_cons
+    gun shotgun;
+    shotgun.damage=30;
+    shotgun.mag=6;
+    shotgun.ammo_cons=3;
+    //Tottal Damage damage x ammo_cons
 
-zombie walker;
-walker.damage=5;
-walker.hp=20;
+    zombie walker;
+    walker.damage=5;
+    walker.hp=20;
 
-//Start of Game
-cout <<"     **Zombie Attack**     "<<endl;
-cout <<endl<<"    Press enter to start "<<endl;
-cin.ignore();
+    //Start of Game
+    cout <<"     **Zombie Attack**     "<<endl;
+    cout <<endl<<"    Press enter to start "<<endl;
+    cin.ignore();
 
-system("CLS");
-cout <<"Player enter your name: "<<endl;
-cin >> player_name;
-system("CLS");
-cout <<player_name<<" get ready to phase the hordes!"<<endl;
+    system("CLS");
+    cout <<"Player enter your name: "<<endl;
+    cin >> player_name;
+    system("CLS");
+    cout <<player_name<<" get ready to phase the hordes!"<<endl;
 
-system("PAUSE");
-return 0;
+    return 0;
 }
