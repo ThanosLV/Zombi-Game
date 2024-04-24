@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class gun{
+    private:
+    int dmg;
+    int mag;
+    int ammo_con;
+    public:
+    //constructor
+    gun(int a, int b, int c){
+        dmg=a;
+        mag=b;
+        ammo_con=c;
+    }
+    //setter
+    void set_gun (int a, int b, int c){
+        dmg=a;
+        mag=b;
+        ammo_con=c;
+    }
+    //getter
+    void get_gun (){ 
+        cout << "damage: "<<dmg <<endl;
+        cout << "mag capacity: "<<mag <<endl;
+        cout << "ammo consumption: "<<ammo_con<<endl;
+    }
+};
+
+int main() {
+    gun pistol(10,15,1); //with constructor
+    //pistol.set_gun(10,15,1); //with setter
+    cout << "Pistol:" <<endl;
+    pistol.get_gun();
+    return 0;
+}
