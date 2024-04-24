@@ -9,11 +9,22 @@ class gun{
     int damage;
     int mag;
     int ammo_cons; //ammo consumption
+    //setter
+    void set_gun(int dmg, int mg, int a_c){
+    	damage=dmg;
+    	mag=mg;
+    	ammo_cons=a_c;
+	}
 };
 class zombie{
     public:
     int damage;
     int hp;
+    //setter
+	void set_zombie(int dmg, int health){
+		damage=dmg;
+		hp=health;
+	}
 };
 
 int main(){
@@ -21,23 +32,16 @@ int main(){
     string player_name;
     int player_hp;
     int player_curr_hp;
-    //constructing objects
+    //set objects
     gun pistol;
-    pistol.damage=10;
-    pistol.mag=15;
-    pistol.ammo_cons=1;
-
+    pistol.set_gun(10,15,1);
     gun shotgun;
-    shotgun.damage=30;
-    shotgun.mag=6;
-    shotgun.ammo_cons=3;
-    //Tottal Damage damage x ammo_cons
-
+    shotgun.set_gun(30,6,3); //Tottal Damage damage x ammo_cons
     zombie walker;
-    walker.damage=5;
-    walker.hp=20;
+    walker.set_zombie(5,20);
 
     //Start of Game
+    
     cout <<"     **Zombie Attack**     "<<endl;
     cout <<endl<<"    Press enter to start "<<endl;
     cin.ignore();
