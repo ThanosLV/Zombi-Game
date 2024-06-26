@@ -1,0 +1,136 @@
+#include <iostream>
+#include <string>
+#include <stdlib.h>
+#include <windows.h>
+#include <iomanip>
+using namespace std;
+
+//Global variables
+int gold=20;
+
+//set classes
+class gun{
+      public:
+           int damage;
+           int mag;
+           int ammo_cons; //ammo consumption
+           gun(int d,int m,int a){
+                 damage=d;
+                 mag=m;
+                 ammo_cons=a;
+           }
+           void get_gun(){
+                cout<<"Damage: "<<damage<<endl;
+                cout<<"Mag: "<<mag<<endl;
+                cout<<"Ammo_Consumption: "<<ammo_cons<<endl;
+           }  
+};
+class zombie{
+      public:
+           int damage;
+           int hp;
+};
+
+//functions
+
+//function for indedx
+int find_index(string array[],int size,string target){
+     int i;
+     for ( i = 0; i < size; ++i) {
+        if (array[i] == target) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+//function for shop
+void shop_menu(){
+       int i=0;
+       string shop_choice;
+       int price[]={10,20,30,5};
+       string items[]={"pistol","smg","shotgun","ammo"};
+       int size_items= sizeof(items) / sizeof(items[0]);
+       int selected_item=0;
+       
+       cout<<setw(50)<<gold<<" Gold"<<endl;
+       cout<<setw(25)<<"SHOP"<<endl;
+       cout<<"____________________________________________"<<endl;
+       cout<<"Pistol"<<setw(38)<<"10 gold"<<endl; 
+       cout<<"SMG"<<setw(41)<<"20 gold"<<endl;
+       cout<<"Shotgun"<<setw(37)<<"30 gold"<<endl;
+       cout<<"Pistol Ammo"<<setw(33)<<"5 gold"<<endl;
+       cout<<"SMG Ammo"<<setw(36)<<"5 gold"<<endl;
+       cout<<"Shotgun Ammo"<<setw(32)<<"5 gold"<<endl;
+       cout<<endl<<"Buy: ";
+       
+       getchar();
+       cin >>shop_choice;
+       selected_item = find_index(items,size_items,shop_choice);
+       if (gold >= price[selected_item]){
+                cout <<shop_choice<<" bought!"<<endl;
+                gold = gold - price[selected_item];
+       }
+       else{
+            cout<<"Not enough money!"<<endl;
+       }          
+      Sleep(1500);               
+}    
+    
+int main(){
+    //set variables
+    string player_name;
+    int player_hp;
+    int player_curr_hp;
+    string menu_choice;
+    //constructing objects
+    gun pistol(10,15,1);   
+    gun shotgun(30,6,3);
+    gun mg(4,25,5);
+    //Tottal Damage damage x ammo_cons
+    
+    zombie walker;
+    walker.damage=5;
+    walker.hp=20;
+    
+    //Start of Game
+
+    cout <<"     **Zombie Attack**     "<<endl;
+	cout <<endl<<"    Press enter to start "<<endl;
+	cin.ignore();
+	
+	system("CLS");
+	cout <<"Player enter your name: "<<endl;
+	cin >> player_name;
+	system("CLS");
+	cout <<player_name<<" get ready to phase the hordes!"<<endl;
+	Sleep(1500);
+	
+	while (menu_choice != "exit"){
+          system ("CLS");
+          cout<<"Write your action:"<<endl;
+          cout<<"-Start-"<<endl;
+          cout<<"-Shop-"<<endl;
+          cout<<"-Exit-"<<endl;
+          cout<<endl<<"Input:  ";
+          
+          getchar();
+          cin >>menu_choice;
+          if (menu_choice == "start"){
+                    cout <<"The game loop starts"<<endl;
+          }
+          else if (menu_choice == "shop"){
+                    system("CLS");           
+                    shop_menu();
+          }
+          else if (menu_choice == "exit"){
+                    cout <<"Goodbye"<<endl;
+          }
+          else {
+               cout <<"Wrong Choice!"<<endl;
+          }
+ }      
+	
+	system("PAUSE");
+	return 0;
+}
